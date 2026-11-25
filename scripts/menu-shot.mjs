@@ -1,0 +1,13 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch({ channel: 'msedge' });
+const c = await b.newContext({ viewport: { width: 360, height: 740 } });
+const p = await c.newPage();
+await p.goto('http://localhost:4173/', { waitUntil: 'networkidle' });
+await p.evaluate(() => localStorage.setItem('nutrijuliano_analytics_consent', 'rejected'));
+await p.reload({ waitUntil: 'networkidle' });
+await p.waitForTimeout(2000);
+await p.screenshot({ path: 'qa/m360-hero.png' });
+await p.click('.header__menu');
+await p.waitForTimeout(500);
+await p.screenshot({ path: 'qa/m360-menu.png' });
+await b.close();

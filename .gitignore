@@ -1,0 +1,13 @@
+node_modules
+dist
+dist-ssr
+qa
+qa-critique
+.playwright-mcp
+*.log
+tsconfig.tsbuildinfo
+# material de terceiros / dados pessoais: ficam só na máquina local
+docs/refs/
+docs/audit/bundle.js
+docs/audit/assets-original/
+docs/audit/*.png

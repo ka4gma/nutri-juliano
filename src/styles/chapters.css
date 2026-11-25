@@ -1,0 +1,584 @@
+/* Capítulos redesenhados: composição própria, sem listas de linhas iguais.
+   Vocabulário: régua, cota, tipografia em escala. Nenhuma cor ou fonte nova. */
+
+/* ============ HERO: fatos em uma linha, sem selos ============ */
+.hero__facts {
+  grid-column: 1 / span 9;
+  margin-top: clamp(22px, 2.6vw, 32px);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.9375rem;
+  color: var(--nevoa);
+  opacity: 0;
+  transition: opacity 800ms var(--ease) 700ms;
+}
+.hero.is-ready .hero__facts {
+  opacity: 1;
+}
+.hero__facts li {
+  display: flex;
+  gap: 0.4em;
+  padding-right: 22px;
+}
+.hero__facts li + li {
+  padding-left: 22px;
+  border-left: 1px solid var(--linha-esc);
+}
+.hero__facts strong {
+  color: var(--papel);
+  font-weight: 600;
+}
+
+/* ============ POSICIONAMENTO: frase-cartaz com garra de medição ============ */
+.pos__h {
+  display: grid;
+  justify-items: start;
+  --fs: clamp(3rem, 10.2vw, 9.6rem);
+}
+.pos__a {
+  display: block;
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: var(--fs);
+  line-height: 0.92;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  margin-bottom: calc(var(--fs) * 0.62);
+}
+.jaw {
+  position: relative;
+  display: inline-block;
+  padding-inline: 0.05em;
+}
+.jaw::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.2em;
+  height: 0.13em;
+  border: max(2px, 0.016em) solid var(--accent);
+  border-top: 0;
+  transform: scaleX(0);
+  transition: transform 1100ms var(--ease) 500ms;
+}
+.pos__a.is-in .jaw::before {
+  transform: none;
+}
+.jaw__l {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + var(--fs) * 0.36);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: var(--f-mono);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.pos__b {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(1.7rem, 3.9vw, 3.7rem);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  max-width: 24ch;
+  text-wrap: balance;
+}
+.pos__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(64px, 9vw, 136px);
+}
+.pos__t {
+  padding-inline: 28px;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-stretch: 92%;
+  font-size: clamp(1.2rem, 1.7vw, 1.6rem);
+  line-height: 1.22;
+  letter-spacing: -0.012em;
+  max-width: 28ch;
+}
+.pos__t:first-child {
+  padding-left: 0;
+}
+.pos__t + .pos__t {
+  border-left: 1px solid var(--rule);
+}
+
+/* ============ ACOMPANHAMENTO: o que acontece em 30 dias, desenhado ============ */
+.dia0 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.dia0__item {
+  padding-inline: 28px;
+}
+.dia0__item:first-child {
+  padding-left: 0;
+}
+.dia0__item + .dia0__item {
+  border-left: 1px solid var(--rule);
+}
+.dia0__t {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-stretch: 88%;
+  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+.dia0__p {
+  margin-top: 12px;
+  max-width: 34ch;
+  font-size: 1.0625rem;
+  color: var(--tinta);
+  opacity: 0.82;
+}
+
+.dias {
+  margin-top: clamp(80px, 10vw, 152px);
+}
+.dias__scale {
+  --rc: var(--accent);
+  border-right: 1px solid var(--accent);
+  background-size:
+    calc(100% / 30) 9px,
+    calc(100% / 6) 18px;
+}
+.dias__axis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 12px;
+  font-family: var(--f-mono);
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.dias__axis span:nth-child(2) {
+  text-align: center;
+}
+.dias__axis span:nth-child(3) {
+  text-align: right;
+}
+.dias__row {
+  margin-top: clamp(40px, 5vw, 68px);
+}
+.dias__row .cota {
+  margin-top: 22px;
+}
+.dias__row--15 .cota {
+  width: 50%;
+}
+.dias__t {
+  margin-top: 0;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-stretch: 88%;
+  font-size: clamp(1.5rem, 2.3vw, 2.1rem);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.dias__p {
+  margin-top: 8px;
+  max-width: 48ch;
+  color: var(--tinta);
+  opacity: 0.82;
+}
+
+/* ============ PARA QUEM É: escala tipográfica em degraus ============ */
+.quem__head {
+  margin-bottom: clamp(40px, 6vw, 88px);
+}
+.quem__lead {
+  margin-top: 20px;
+  max-width: 46ch;
+  color: var(--muted);
+}
+.quem__item {
+  --step: min(4vw, 56px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 26ch);
+  align-items: end;
+  gap: 8px 48px;
+  padding: clamp(14px, 1.8vw, 24px) 0;
+  padding-left: calc(var(--k, 0) * var(--step));
+  border-top: 1px solid var(--linha-esc);
+  transition: opacity 300ms var(--ease);
+}
+.quem__t {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: clamp(2.2rem, 5.2vw, 4.9rem);
+  line-height: 0.96;
+  letter-spacing: -0.012em;
+  transition: color 300ms var(--ease);
+}
+.quem__p {
+  padding-bottom: 0.5em;
+  font-size: 1.0625rem;
+  color: var(--nevoa);
+}
+@media (hover: hover) {
+  .quem__list:hover .quem__item {
+    opacity: 0.38;
+  }
+  .quem__list .quem__item:hover {
+    opacity: 1;
+  }
+  .quem__item:hover .quem__t {
+    color: var(--latao);
+  }
+}
+.horm {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 24px;
+  margin-top: clamp(56px, 8vw, 104px);
+  padding-top: 32px;
+  border-top: 1px solid var(--linha-esc);
+}
+.horm__t {
+  grid-column: 1 / span 5;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-stretch: 90%;
+  font-size: clamp(1.5rem, 2.2vw, 2.1rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.horm__p {
+  grid-column: 1 / span 5;
+  margin-top: 12px;
+  max-width: 52ch;
+  color: var(--nevoa);
+}
+.horm__aviso {
+  grid-column: 7 / -1;
+  grid-row: 1 / span 2;
+  align-self: start;
+  max-width: 46ch;
+  padding: 24px 28px;
+  border: 1px solid var(--latao);
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+.horm__k {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--latao);
+}
+
+/* ============ COMO INICIAR: duas palavras separadas por uma régua ============ */
+.fmt__head {
+  max-width: 880px;
+}
+.fmt__lead {
+  margin-top: 20px;
+  max-width: 56ch;
+  color: var(--muted);
+}
+.fmt__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 18px minmax(0, 1fr);
+  column-gap: clamp(20px, 4vw, 64px);
+  margin-top: clamp(48px, 7vw, 96px);
+}
+.fmt__ruler {
+  --rc: var(--accent);
+  align-self: stretch;
+}
+.fmt__col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+.fmt__t {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-stretch: 78%;
+  font-size: clamp(3rem, 8.6vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: -0.015em;
+}
+.fmt__l {
+  display: grid;
+  flex: 1;
+  align-content: start;
+  gap: 4px;
+  margin-bottom: 12px;
+  color: var(--muted);
+}
+.fmt__valor {
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  max-width: 64ch;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+/* ============ RESPONSIVO ============ */
+@media (max-width: 900px) {
+  .pos__list,
+  .dia0 {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .pos__t,
+  .pos__t:first-child,
+  .dia0__item,
+  .dia0__item:first-child {
+    padding-inline: 0;
+  }
+  .pos__t + .pos__t,
+  .dia0__item + .dia0__item {
+    border-left: 0;
+    border-top: 1px solid var(--rule);
+    padding-top: 28px;
+  }
+  .dias__row--15 .cota {
+    width: 50%;
+  }
+  .quem__item {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+  }
+  .quem__p {
+    padding-bottom: 8px;
+  }
+  .horm {
+    display: block;
+  }
+  .horm__aviso {
+    margin-top: 24px;
+  }
+  .fmt__grid {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+  }
+  .fmt__ruler {
+    width: 100%;
+    height: 18px;
+    background-image:
+      linear-gradient(to right, var(--rc) 0 1px, transparent 1px),
+      linear-gradient(to right, var(--rc) 0 1px, transparent 1px);
+    background-size:
+      8px 9px,
+      40px 18px;
+    background-repeat: repeat-x, repeat-x;
+    background-position:
+      0 0,
+      0 0;
+  }
+}
+@media (max-width: 600px) {
+  .pos__a {
+    margin-bottom: calc(var(--fs) * 0.95);
+  }
+  .hero__facts {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .hero__facts li,
+  .hero__facts li + li {
+    padding: 0;
+    border-left: 0;
+  }
+  .jaw__l {
+    letter-spacing: 0.1em;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__facts {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+  .jaw::before {
+    transform: none !important;
+    transition: none !important;
+  }
+  .quem__item,
+  .quem__t {
+    transition: none !important;
+  }
+}
+
+/* ============ SOBRE: foto em sangria ============ */
+.sobre {
+  padding-block: 0;
+}
+.sobre__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+.sobre__fig {
+  position: relative;
+  min-height: 100%;
+}
+.sobre__img {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--ardosia-2);
+}
+.sobre__img picture,
+.sobre__img img {
+  width: 100%;
+  height: 100%;
+}
+.sobre__img img {
+  object-fit: cover;
+  object-position: 50% 52%;
+}
+.sobre__fig::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 28%;
+  background: linear-gradient(0deg, rgba(14, 20, 19, 0.85), rgba(14, 20, 19, 0));
+  pointer-events: none;
+}
+.sobre__cap {
+  position: absolute;
+  left: var(--gutter);
+  bottom: 24px;
+  z-index: 1;
+  font-size: 0.875rem;
+  color: var(--papel);
+}
+.sobre__txt {
+  padding: var(--sec-y) var(--gutter) var(--sec-y) clamp(32px, 5.5vw, 88px);
+  max-width: calc(640px + var(--gutter) + clamp(32px, 5.5vw, 88px));
+}
+.sobre__h {
+  font-family: var(--f-display);
+  font-weight: 800;
+  font-stretch: 80%;
+  font-size: clamp(3.2rem, 7.4vw, 7rem);
+  line-height: 0.9;
+  letter-spacing: -0.015em;
+}
+.sobre__role {
+  margin-top: 20px;
+  font-weight: 600;
+  color: var(--latao);
+}
+.sobre__lead {
+  margin-top: clamp(28px, 3.4vw, 48px);
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(1.55rem, 2.6vw, 2.4rem);
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+.sobre__p {
+  margin-top: 20px;
+  max-width: 52ch;
+  color: var(--nevoa);
+}
+.reg {
+  margin-top: clamp(32px, 4vw, 52px);
+  display: grid;
+  gap: 14px;
+}
+.reg li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-stretch: 92%;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+.reg li::before {
+  content: '';
+  flex: none;
+  width: 28px;
+  height: 1px;
+  background: var(--latao);
+}
+
+/* ============ AVALIAÇÕES: mural ============ */
+.aval__main {
+  max-width: 1040px;
+  padding-top: 8px;
+}
+.aval__q {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(1.9rem, 3.7vw, 3.6rem);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+.aval__cap {
+  display: block;
+  margin-top: 24px;
+  font-weight: 600;
+}
+.aval__wall {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(36px, 4vw, 56px) clamp(24px, 3vw, 48px);
+  margin-top: clamp(64px, 9vw, 128px);
+}
+.aval__q2 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: clamp(1.2rem, 1.6vw, 1.5rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.aval__cap--sm {
+  margin-top: 14px;
+  font-size: 0.9375rem;
+}
+.aval__src {
+  align-self: end;
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .sobre__grid {
+    grid-template-columns: 1fr;
+  }
+  .sobre__fig {
+    aspect-ratio: 4 / 5;
+    min-height: 0;
+  }
+  .sobre__cap {
+    left: var(--gutter);
+  }
+  .sobre__txt {
+    max-width: none;
+    padding: clamp(48px, 10vw, 80px) var(--gutter);
+  }
+  .aval__wall {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dias__p,
+.quem__p,
+.fmt__valor,
+.aval__src p,
+.faq__a {
+  text-wrap: pretty;
+}

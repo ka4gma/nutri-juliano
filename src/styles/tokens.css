@@ -1,0 +1,54 @@
+/* Tokens — Sob Medida. Fonte das decisões: docs/02-DIRECAO-DE-ARTE.md */
+:root {
+  /* cor: derivada de pixels do retrato (docs/02 §3) */
+  --ardosia: #0e1413;
+  --ardosia-2: #161e1d;
+  --ardosia-3: #212c2a;
+  --linha-esc: #3a4745; /* decorativa: nunca texto */
+  --papel: #ede8dc;
+  --linha-claro: rgba(17, 23, 21, 0.22);
+  --tinta: #111715;
+  --nevoa: #a8b0a8; /* texto secundário no escuro: 8,4:1 */
+  --nevoa-esc: #4e554f; /* texto secundário no claro: 6,3:1 */
+  --latao: #c9a45c; /* único acento */
+  --latao-esc: #7a5a1e; /* acento em texto sobre papel: 5,2:1 */
+
+  /* tipografia */
+  --f-display: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif;
+  --f-text: 'Instrument Sans Variable', 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+  --f-mono: 'DM Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --fs-hero: clamp(3.9rem, 9.7vw, 9.5rem);
+  --fs-hero-s: clamp(1.5rem, 2.7vw, 2.6rem);
+  --fs-h2: clamp(2.15rem, 4.9vw, 4.7rem);
+  --fs-body: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --fs-mono: 0.75rem;
+
+  /* espaço: base 4 px */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-6: 24px;
+  --s-8: 32px;
+  --s-12: 48px;
+  --s-16: 64px;
+  --s-24: 96px;
+  --s-32: 128px;
+  --sec-y: clamp(80px, 11vw, 168px);
+  --gutter: clamp(20px, 5vw, 80px);
+  --max: 1280px;
+  --header-h: 84px;
+
+  /* forma */
+  --r-btn: 2px;
+  --hair: 1px;
+
+  /* movimento */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-micro: 180ms;
+  --t-rv: 600ms;
+  --t-hero: 1100ms;
+
+  /* breakpoints de referência (usados nas media queries): 480 · 768 · 900 · 1100 · 1280 · 1440 */
+}
